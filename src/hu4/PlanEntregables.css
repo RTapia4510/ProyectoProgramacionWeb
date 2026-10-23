@@ -1,0 +1,97 @@
+
+/* Contenedor principal */
+.hu4-contenedor {
+  width: 95%;
+  max-width: 1250px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: white;
+  color: #243047;
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+
+/* Títulos */
+.hu4-contenedor h1 {
+  color: #253b70;
+  text-align: center;
+  font-size: 32px;
+}
+
+.hu4-contenedor h2 {
+  color: #253b70;
+  margin-top: 25px;
+}
+
+.hu4-contenedor > p {
+  text-align: center;
+}
+
+/* Tabla */
+.hu4-contenedor table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.hu4-contenedor th {
+  background-color: #253b70;
+  color: white;
+  padding: 12px;
+}
+
+.hu4-contenedor td {
+  border: 1px solid #d5dce8;
+  padding: 12px;
+  text-align: center;
+}
+
+.hu4-contenedor tr:nth-child(even) {
+  background-color: #f3f6fc;
+}
+
+/* Botones */
+.hu4-contenedor button {
+  background-color: #3459a4;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.hu4-contenedor button:hover {
+  background-color: #243f79;
+}
+
+/* Campos de formulario */
+.hu4-contenedor input,
+.hu4-contenedor textarea,
+.hu4-contenedor select {
+  padding: 8px;
+  margin: 5px;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.hu4-contenedor textarea {
+  min-height: 60px;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 900px) {
+  .hu4-contenedor {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: auto;
+  }
+
+  .hu4-contenedor table {
+    min-width: 850px;
+  }
+}

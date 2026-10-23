@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import PlanEntregables from './hu4/PlanEntregables';
 import Layout from './components/Layout';
+import Ficha from './pages/asesor/Ficha';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <Route element={<Layout />}>
           <Route
             path="/"
-            element={<PlanEntregables />}
+            element={<Ficha />}
           />
         </Route>
       </Routes>

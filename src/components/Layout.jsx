@@ -8,7 +8,7 @@ import '@fontsource/lora/600.css';
 import '@fontsource/lora/500.css';
 import '@fontsource/lora/400.css';
 
-const rol = 'publico';
+const rol = 'asesor';
 
 const roles ={
     publico: ['Inicio','El proceso','Directorio de asesores','Cronograma','Preguntas frecuentes'],

@@ -1,0 +1,340 @@
+@startuml Historia6_Sustentacion
+title Historia 6 · Sustentación — Diagrama de clases (Tema 10 · TFC)
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #1E4534
+  HeaderBackgroundColor #E4EFE9
+  ArrowColor #2C5F4A
+  BackgroundColor<<otra historia>> #F1F0EA
+  BorderColor<<otra historia>> #66716B
+  BackgroundColor<<derivada>> #FFFFFF
+  BorderColor<<derivada>> #B08948
+}
+skinparam note {
+  BackgroundColor #FAEFD9
+  BorderColor #B08948
+}
+hide empty methods
+
+' ======================= ENUMERACIONES =======================
+enum RolUsuario {
+  ESTUDIANTE
+  ASESOR
+  ADMINISTRADOR
+  SECRETARIA_ACADEMICA
+}
+
+enum GradoAcademico {
+  INGENIERO
+  MAGISTER
+  DOCTOR
+}
+
+enum EstadoTrabajo {
+  EN_DESARROLLO
+  CONCLUIDO
+  SUSTENTADO
+}
+
+enum EstadoEtapa {
+  CERRADA
+  EN_CURSO
+  PENDIENTE
+}
+
+enum ModalidadSustentacion {
+  PRESENCIAL
+  VIRTUAL
+  HIBRIDA
+}
+
+enum EstadoSustentacion {
+  PROGRAMADA
+  REALIZADA
+}
+
+enum RolJurado {
+  PRESIDENTE
+  MIEMBRO
+}
+
+enum EstadoActa {
+  BORRADOR
+  REGISTRADA
+}
+
+enum ResultadoActa {
+  APROBADO
+  APROBADO_CON_OBSERVACIONES
+  DESAPROBADO
+}
+
+enum TipoRequisito {
+  INFORME_FINAL_APROBADO
+  INFORME_IMPRESO
+  CONSTANCIA_NO_ADEUDO
+}
+
+enum TipoNotificacion {
+  SUSTENTACION_PROGRAMADA
+  JURADO_CONFORMADO
+  ACTA_REGISTRADA
+}
+
+enum DestinatarioNotificacion {
+  EQUIPO
+  ASESOR
+  JURADO
+  SECRETARIA_ACADEMICA
+}
+
+enum RolEquipo {
+  RESPONSABLE
+  INTEGRANTE
+}
+
+enum EstadoEntregable {
+  PENDIENTE
+  ENTREGADO
+  CON_RETRASO
+  OBSERVADO
+  APROBADO
+  VENCIDO
+}
+
+' ======================= CLASES DE OTRAS HISTORIAS (referencia) =======================
+abstract class Usuario <<otra historia>> {
+  - id : int
+  - nombres : String
+  - apellidos : String
+  - email : String
+  - rol : RolUsuario
+  - cargo : String
+}
+
+class Estudiante <<otra historia>> {
+  - codigo : String
+}
+
+class Docente <<otra historia>> {
+  - tituloAbreviado : String
+  - gradoAcademico : GradoAcademico
+  + getCargaJurados(periodo : Periodo) : int
+}
+
+class Carrera <<otra historia>> {
+  - nombre : String
+}
+
+class Departamento <<otra historia>> {
+  - nombre : String
+}
+
+class LineaInvestigacion <<otra historia>> {
+  - nombre : String
+}
+
+class Periodo <<otra historia>> {
+  - codigo : String
+}
+
+class EtapaCronograma <<otra historia>> {
+  - numero : int
+  - nombre : String
+  - fechaInicio : Date
+  - fechaFin : Date
+  - estado : EstadoEtapa
+}
+
+class TrabajoFinCarrera <<otra historia>> {
+  - codigo : String
+  - titulo : String
+  - estado : EstadoTrabajo
+  + getAvancePlan() : int
+}
+
+class MiembroEquipo <<otra historia>> {
+  - rol : RolEquipo
+}
+
+class Entregable <<otra historia>> {
+  - nombre : String
+  - estado : EstadoEntregable
+}
+
+class InformeFinal <<otra historia>> {
+  - archivo : String
+  - fechaAprobacion : Date
+  - aprobadoPor : String
+}
+
+class DictadoClase <<otra historia>> {
+  - curso : String
+}
+
+' ======================= CLASES PROPIAS DE LA HISTORIA 6 =======================
+class Sala {
+  - codigo : String
+  - pabellon : String
+  - piso : int
+  - aforo : int
+  + getDescripcionUbicacion() : String
+}
+
+class Sustentacion {
+  - id : int
+  - fecha : Date
+  - horaInicio : Time
+  - duracionMin : int = 60
+  - modalidad : ModalidadSustentacion
+  - estado : EstadoSustentacion
+  - fechaProgramacion : DateTime
+  + getHoraFin() : Time
+  + getDiaSemana() : String
+  + getDiasFaltantes() : int
+  + salaDisponible() : boolean
+  + juradoSinCruces() : boolean
+}
+
+class BloqueHorario <<derivada>> {
+  - fecha : Date
+  - horaInicio : Time
+  - horaFin : Time
+  - estado : "Libre | Ocupada | Seleccionada"
+}
+
+class MiembroJurado {
+  - rol : RolJurado
+  - agregadoConAdvertencia : boolean
+  - motivoAdvertencia : String
+  + esPresidente() : boolean
+}
+
+class Acta {
+  - estado : EstadoActa
+  - notaFinal : int
+  - resultado : ResultadoActa
+  - observaciones : String
+  - porUnanimidad : boolean
+  - fechaRegistro : DateTime
+  - archivoPdfFirmado : String
+  + calcularNotaFinal() : int
+  + registrar() : void
+  + getCodigo() : String
+}
+
+class FirmaActa {
+  - firmada : boolean
+  - fechaFirma : DateTime
+}
+
+class CriterioEvaluacion {
+  - id : int
+  - nombre : String
+  - peso : int
+}
+
+class CalificacionCriterio {
+  - nota : int
+}
+
+class RequisitoSustentacion {
+  - tipo : TipoRequisito
+  - descripcion : String
+  - cumplido : boolean
+  - fechaCumplimiento : Date
+  - fechaLimite : Date
+  - diasHabilesAntes : int
+  - lugarEntrega : String
+  - archivoAdjunto : String
+}
+
+class Notificacion {
+  - tipo : TipoNotificacion
+  - destinatario : DestinatarioNotificacion
+  - canal : String = "correo"
+  - fechaEnvio : DateTime
+}
+
+' ======================= RELACIONES =======================
+Usuario <|-- Estudiante
+Usuario <|-- Docente
+
+Estudiante "*" --> "1" Carrera
+Docente "*" --> "1" Departamento
+TrabajoFinCarrera "*" --> "1" Departamento
+TrabajoFinCarrera "*" --> "1" LineaInvestigacion
+
+Periodo "1" *-- "5" EtapaCronograma
+Periodo "1" o-- "0..*" TrabajoFinCarrera
+TrabajoFinCarrera "1" *-- "1..*" MiembroEquipo
+MiembroEquipo "*" --> "1" Estudiante
+TrabajoFinCarrera "*" --> "1" Docente : asesor
+TrabajoFinCarrera "1" *-- "5" Entregable
+TrabajoFinCarrera "1" -- "0..*" InformeFinal
+
+DictadoClase "*" --> "1" Docente
+DictadoClase "*" --> "1" Estudiante
+DictadoClase "*" --> "1" Periodo
+
+TrabajoFinCarrera "1" -right- "0..1" Sustentacion : se sustenta en
+Sala "1" -down- "0..*" Sustentacion : se realiza en
+Sala "1" -- "0..*" BloqueHorario : disponibilidad
+Sustentacion "*" --> "1" Usuario : programadaPor
+Sustentacion "1" *-down- "3" MiembroJurado
+Docente "1" -- "0..*" MiembroJurado : integra jurado
+Sustentacion "1" *-left- "0..1" Acta
+Acta "1" *-- "3" FirmaActa
+FirmaActa "*" --> "1" MiembroJurado
+Acta "1" *-- "4" CalificacionCriterio
+CriterioEvaluacion "1" -- "0..*" CalificacionCriterio
+Acta "*" --> "1" Usuario : registradaPor
+TrabajoFinCarrera "1" *-- "3" RequisitoSustentacion
+Sustentacion "1" -- "0..*" Notificacion : genera
+
+' ======================= REGLAS DE NEGOCIO =======================
+note right of Sustentacion
+  **Reglas (6.1)**
+  - Solo trabajos en estado CONCLUIDO
+  - Fecha dentro de la ventana (EtapaCronograma 5)
+  - Bloques de 60 min
+  - Una sala no puede tener dos
+    sustentaciones a la misma hora
+  - Ningun jurado con otra sustentacion
+    en el mismo bloque
+  - Solo la coordinacion reprograma
+end note
+
+note bottom of MiembroJurado
+  **Reglas (6.2)**
+  - Exactamente 3 miembros
+  - Al menos 1 doctor
+  - Al menos 1 del departamento del trabajo
+  - Un solo presidente
+  - El asesor del trabajo NO puede ser jurado (dura)
+  - DictadoClase del docente al equipo en el periodo
+    anterior = advertencia (blanda)
+end note
+
+note left of Acta
+  **Reglas (6.3)**
+  - Codigo del acta = codigo del trabajo
+  - notaFinal = redondeo( suma(nota x peso) )
+  - Los pesos suman 100 %
+  - Nota en rango 0-20
+  - Acta REGISTRADA es definitiva:
+    solo SECRETARIA_ACADEMICA rectifica
+  - Al registrar: TrabajoFinCarrera pasa a SUSTENTADO
+    y se notifica a equipo, asesor y Secretaria
+end note
+
+note bottom of BloqueHorario
+  Clase derivada: se calcula a partir de
+  las sustentaciones existentes de la sala
+  (no se persiste).
+end note
+
+@enduml

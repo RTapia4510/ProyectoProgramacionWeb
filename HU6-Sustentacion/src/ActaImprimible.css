@@ -1,0 +1,337 @@
+
+/* ======================================
+   HU6 - ACTA IMPRIMIBLE
+====================================== */
+
+.imprimible-pagina {
+  min-height: 100vh;
+  background: #F1F0EA;
+  padding: 30px 20px 70px;
+  font-family: "Inter", Arial, sans-serif;
+  color: #1A211D;
+}
+
+/* CONTROLES */
+
+.imprimible-controles {
+  max-width: 794px;
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.imprimible-controles strong {
+  font-size: 13px;
+  color: #1E4534;
+}
+
+.imprimible-controles button {
+  padding: 11px 15px;
+  border-radius: 5px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.imprimible-volver {
+  border: 1px solid #2C5F4A;
+  background: white;
+  color: #2C5F4A;
+}
+
+.imprimible-boton {
+  background: #2C5F4A;
+  color: white;
+  border: 1px solid #2C5F4A;
+}
+
+/* HOJA A4 */
+
+.documento-a4 {
+  width: 210mm;
+  min-height: 297mm;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 16mm 13mm 15mm;
+  background: #FFFFFF;
+  border: 1px solid #E1E3DC;
+  box-shadow: 0 4px 18px #00000012;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* ENCABEZADO INSTITUCIONAL */
+
+.documento-encabezado {
+  text-align: center;
+  margin: 0;
+}
+
+.documento-encabezado p {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #66716B;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.documento-encabezado h1 {
+  font-family: "Lora", Georgia, serif;
+  color: #1E4534;
+  font-size: 20px;
+  line-height: 27px;
+  margin: 0 0 7px;
+  font-weight: 700;
+}
+
+.documento-encabezado span {
+  color: #66716B;
+  font-size: 10px;
+}
+
+.documento-linea {
+  height: 1px;
+  background: #E1E3DC;
+  margin: 21px 0 19px;
+}
+
+/* DATOS DEL TRABAJO */
+
+.documento-informacion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.documento-campo {
+  min-width: 0;
+}
+
+.documento-campo span {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.9px;
+  color: #66716B;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.documento-campo strong {
+  display: block;
+  font-family: "Lora", Georgia, serif;
+  font-size: 13px;
+  color: #1A211D;
+  line-height: 20px;
+}
+
+.documento-campo p {
+  font-size: 11px;
+  margin: 0;
+  line-height: 17px;
+}
+
+.documento-dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* TABLA */
+
+.documento-tabla {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 23px;
+  font-size: 11px;
+  border: 1px solid #E1E3DC;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.documento-tabla th {
+  background: #FAFAF8;
+  color: #66716B;
+  font-size: 9px;
+  text-align: left;
+  letter-spacing: 0.8px;
+  padding: 11px 12px;
+  border-bottom: 1px solid #E1E3DC;
+}
+
+.documento-tabla td {
+  padding: 11px 12px;
+  border-bottom: 1px solid #E1E3DC;
+  line-height: 16px;
+}
+
+.documento-tabla th:nth-child(2),
+.documento-tabla th:nth-child(3),
+.documento-tabla td:nth-child(2),
+.documento-tabla td:nth-child(3) {
+  text-align: center;
+  width: 65px;
+}
+
+.documento-tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.documento-tabla .documento-total {
+  background: #E4EFE9;
+  color: #1E4534;
+  font-weight: 700;
+}
+
+/* OBSERVACIONES */
+
+.documento-observaciones {
+  margin-top: 23px;
+}
+
+.documento-observaciones h2 {
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  color: #66716B;
+  margin: 0 0 8px;
+}
+
+.documento-observaciones p {
+  font-size: 11px;
+  line-height: 18px;
+  margin: 0;
+}
+
+/* FIRMAS */
+
+.documento-firmas {
+  margin-top: auto;
+  padding-top: 65px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 21px;
+}
+
+.documento-firma {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.documento-firma-linea {
+  height: 1px;
+  background: #1A211D;
+  margin-bottom: 5px;
+}
+
+.documento-firma strong {
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.documento-firma span {
+  color: #66716B;
+  font-size: 9px;
+}
+
+/* AVISO DE DEMOSTRACIÓN */
+
+.imprimible-advertencia {
+  max-width: 794px;
+  margin: 16px auto;
+  padding: 12px;
+  font-size: 12px;
+  background: #FFF5E8;
+  border: 1px solid #B7791F;
+  border-radius: 5px;
+  color: #805719;
+}
+
+/* PANTALLAS PEQUEÑAS */
+
+@media screen and (max-width: 650px) {
+  .imprimible-pagina {
+    padding: 14px 8px;
+  }
+
+  .imprimible-controles {
+    flex-wrap: wrap;
+  }
+
+  .documento-a4 {
+    padding: 20px 12px;
+    min-height: 700px;
+  }
+
+  .documento-encabezado h1 {
+    font-size: 16px;
+  }
+
+  .documento-firmas {
+    gap: 8px;
+  }
+
+  .documento-firma strong {
+    font-size: 8px;
+  }
+}
+
+/* CONFIGURACIÓN DE IMPRESIÓN A4 */
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  .imprimible-pagina {
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    background: #FFFFFF;
+  }
+
+  .imprimible-controles,
+  .imprimible-advertencia {
+    display: none !important;
+  }
+
+  .documento-a4 {
+    width: 210mm;
+    min-height: 297mm;
+    max-width: none;
+    margin: 0;
+    padding: 16mm 13mm 15mm;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    break-after: avoid;
+  }
+
+  .documento-tabla,
+  .documento-firmas,
+  .documento-observaciones {
+    break-inside: avoid;
+  }
+
+  .documento-tabla .documento-total,
+  .documento-a4 {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

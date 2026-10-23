@@ -1,0 +1,281 @@
+
+/* ======================================
+   HU6 - PÁGINA 47
+   MODALES Y ESTADOS VACÍOS
+====================================== */
+
+.hu6-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(26, 33, 29, 0.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.hu6-modal {
+  width: 100%;
+  max-width: 570px;
+  background: #FFFFFF;
+  border: 1px solid #E1E3DC;
+  border-radius: 6px;
+  padding: 27px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
+  color: #1A211D;
+}
+
+.hu6-modal h2 {
+  font-family: "Lora", Georgia, serif;
+  color: #1E4534;
+  font-size: 22px;
+  line-height: 30px;
+  margin: 0 0 17px;
+}
+
+/* SALA OCUPADA */
+
+.hu6-error-ocupacion {
+  background: #FCEBEA;
+  border: 1px solid #B4322B;
+  border-radius: 5px;
+  padding: 14px;
+  color: #B4322B;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.hu6-error-icono {
+  background: #B4322B;
+  color: white;
+  width: 19px;
+  height: 19px;
+  min-width: 19px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.hu6-alternativas {
+  margin-top: 16px;
+  padding: 15px;
+  border: 1px solid #E1E3DC;
+  border-radius: 5px;
+  background: #FAFAF8;
+}
+
+.hu6-alternativas h3 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  color: #66716B;
+  margin: 0 0 12px;
+}
+
+.hu6-alternativas > p {
+  color: #66716B;
+  font-size: 13px;
+  margin: 0;
+}
+
+.hu6-alternativa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: white;
+  border: 1px solid #E1E3DC;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 9px;
+}
+
+.hu6-alternativa button {
+  border: none;
+  background: transparent;
+  color: #2C5F4A;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* REGISTRO DEL ACTA */
+
+.hu6-resumen-acta {
+  background: #FAFAF8;
+  border: 1px solid #E1E3DC;
+  border-radius: 5px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.hu6-resumen-acta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hu6-resumen-acta span {
+  font-size: 11px;
+  letter-spacing: 0.7px;
+  font-weight: 700;
+  color: #66716B;
+}
+
+.hu6-resumen-acta strong {
+  color: #1E4534;
+  font-family: "Lora", Georgia, serif;
+  font-size: 20px;
+}
+
+.hu6-nota-acta {
+  align-items: flex-end;
+}
+
+.hu6-nota-acta strong {
+  color: #1E7F4D;
+  font-size: 29px;
+}
+
+.hu6-advertencia-acta {
+  background: #FFF5E8;
+  border: 1px solid #B7791F;
+  border-radius: 5px;
+  color: #8B5A17;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 14px;
+  margin-top: 16px;
+}
+
+/* BOTONES DE MODALES */
+
+.hu6-acciones {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.hu6-acciones button {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 5px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hu6-boton-texto {
+  background: transparent;
+  color: #2C5F4A;
+  border: none;
+  cursor: pointer;
+}
+
+.hu6-boton-principal {
+  color: white;
+  background: #2C5F4A;
+  border: 1px solid #2C5F4A;
+  cursor: pointer;
+}
+
+.hu6-boton-principal:hover {
+  background: #1E4534;
+}
+
+.hu6-boton-inactivo {
+  color: white;
+  background: #92AA9D;
+  border: none;
+  cursor: not-allowed;
+}
+
+/* ESTADO SIN SUSTENTACIÓN */
+
+.hu6-sin-sustentacion {
+  width: 100%;
+  max-width: 590px;
+  min-height: 290px;
+  margin: 25px auto;
+  background: #FFFFFF;
+  border: 1px dashed #E1E3DC;
+  border-radius: 6px;
+  padding: 35px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.hu6-icono-calendario {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #F1F0EA;
+  color: #66716B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  margin-bottom: 16px;
+}
+
+.hu6-sin-sustentacion h2 {
+  color: #1E4534;
+  font-family: "Lora", Georgia, serif;
+  font-size: 23px;
+  line-height: 30px;
+  margin: 0 0 10px;
+}
+
+.hu6-sin-sustentacion p {
+  max-width: 425px;
+  color: #66716B;
+  font-size: 13px;
+  line-height: 21px;
+  margin: 0 0 14px;
+}
+
+.hu6-sin-sustentacion button {
+  border: 1px solid #2C5F4A;
+  background: white;
+  color: #2C5F4A;
+  border-radius: 5px;
+  min-height: 43px;
+  padding: 0 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* PANTALLAS PEQUEÑAS */
+
+@media (max-width: 600px) {
+  .hu6-modal {
+    padding: 20px;
+  }
+
+  .hu6-modal h2 {
+    font-size: 19px;
+  }
+
+  .hu6-acciones {
+    flex-wrap: wrap;
+  }
+}

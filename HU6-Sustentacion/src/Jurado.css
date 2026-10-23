@@ -1,0 +1,617 @@
+
+/* ========================================
+   HU6 - PANTALLA 6.2
+   CONFORMACIÓN DEL JURADO
+======================================== */
+
+.jurado-page {
+  --verde: #2C5F4A;
+  --verde-oscuro: #1E4534;
+  --verde-claro: #E4EFE9;
+  --fondo: #F1F0EA;
+  --borde: #E1E3DC;
+  --texto: #1A211D;
+  --gris: #66716B;
+  --amarillo: #B08948;
+  --rojo: #B4322B;
+
+  width: 100%;
+  min-height: 100vh;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: "Inter", Arial, sans-serif;
+}
+
+/* HEREDA EL MISMO HEADER Y MENÚ DE 6.1 */
+
+.jurado-page .header,
+.jurado-page .navbar,
+.jurado-page .footer {
+  width: 100%;
+}
+
+/* CONTENIDO */
+
+.jurado-contenido {
+  padding: 34px 48px 32px;
+  min-height: 855px;
+}
+
+.jurado-introduccion {
+  margin-bottom: 18px;
+}
+
+.jurado-introduccion .breadcrumb {
+  font-size: 12px;
+  color: var(--gris);
+  margin-bottom: 8px;
+}
+
+.jurado-introduccion h1 {
+  font-family: "Lora", Georgia, serif;
+  color: var(--verde-oscuro);
+  font-size: 30px;
+  line-height: 36px;
+  margin: 0 0 5px;
+}
+
+.jurado-introduccion p {
+  font-family: "Lora", Georgia, serif;
+  color: #66716B;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ADVERTENCIA SUPERIOR */
+
+.jurado-alerta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff6e8;
+  border: 1px solid #c99b4a;
+  border-radius: 5px;
+  color: #92641e;
+  padding: 14px 16px;
+  font-size: 12px;
+  line-height: 20px;
+  margin: 0 0 18px;
+}
+
+.jurado-alerta-icono {
+  background: #B08948;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* DISTRIBUCIÓN PRINCIPAL */
+
+.jurado-distribucion {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* TABLA DE DOCENTES */
+
+.jurado-docentes {
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.045);
+  min-height: 615px;
+}
+
+.jurado-tabla-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 24px;
+  background: #FAFAF8;
+  border-bottom: 1px solid var(--borde);
+}
+
+.jurado-tabla-header strong,
+.jurado-panel-header strong {
+  font-size: 11px;
+  color: #66716B;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+
+.jurado-tabla-header span {
+  color: var(--gris);
+  font-size: 12px;
+}
+
+.jurado-lista {
+  width: 100%;
+}
+
+.jurado-docente {
+  padding: 17px 24px;
+  min-height: 75px;
+  border-bottom: 1px solid var(--borde);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.jurado-docente-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.jurado-docente-info strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: #303932;
+}
+
+.jurado-docente-info small {
+  font-size: 12px;
+  color: #66716B;
+  line-height: 17px;
+}
+
+.jurado-docente-accion {
+  flex-shrink: 0;
+}
+
+.jurado-docente-accion button {
+  min-height: 37px;
+  padding: 0 15px;
+  border-radius: 5px;
+  background: white;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* BOTONES POR ESTADO */
+
+.jurado-docente-accion .btn-agregado {
+  border: 1px solid #E1E3DC;
+  background: #FAFAF8;
+  color: #66716B;
+  cursor: not-allowed;
+}
+
+.jurado-docente-accion .btn-agregar {
+  border: 1px solid #2C5F4A;
+  color: #2C5F4A;
+  cursor: pointer;
+}
+
+.jurado-docente-accion .btn-agregar:hover {
+  background: #E4EFE9;
+}
+
+.jurado-docente-accion .btn-conflicto {
+  border: 1px solid #B08948;
+  color: #986b20;
+  cursor: pointer;
+}
+
+.jurado-docente-accion .btn-no-disponible {
+  border: 1px solid #E1E3DC;
+  color: #66716B;
+  cursor: not-allowed;
+}
+
+/* DOCENTE CON ADVERTENCIA */
+
+.jurado-docente.docente-conflicto {
+  background: #FBF3E5;
+}
+
+.jurado-docente-info .texto-conflicto {
+  color: #a06f23;
+}
+
+/* DOCENTE NO ELEGIBLE */
+
+.jurado-docente.docente-asesor {
+  background: #FAFAF8;
+}
+
+.jurado-docente-info .texto-restriccion {
+  color: var(--rojo);
+}
+
+/* NOTA INFERIOR DE TABLA */
+
+.jurado-nota {
+  margin-top: auto;
+  background: #FAFAF8;
+  border-top: 1px solid var(--borde);
+  color: #66716B;
+  padding: 18px 24px;
+  font-size: 12px;
+  line-height: 19px;
+}
+
+/* ========================================
+   PANEL DE JURADO SELECCIONADO
+======================================== */
+
+.jurado-panel {
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 615px;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.045);
+}
+
+.jurado-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 17px;
+}
+
+.jurado-panel-header span {
+  background: #E4EFE9;
+  color: #1E7F4D;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 7px 12px;
+}
+
+/* TARJETAS DE MIEMBROS */
+
+.jurado-miembros {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.jurado-miembro {
+  border: 1px solid var(--borde);
+  border-radius: 5px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jurado-miembro.presidente {
+  background: #E4EFE9;
+  border-color: #6C9B83;
+}
+
+.jurado-miembro-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.jurado-miembro-superior strong {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.jurado-miembro-inferior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.jurado-miembro-inferior small {
+  color: #66716B;
+  font-size: 11px;
+}
+
+.etiqueta-presidente {
+  background: #FFF5E5;
+  color: #A47B3A;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 9px;
+  border-radius: 4px;
+}
+
+.quitar-miembro {
+  background: transparent;
+  border: none;
+  color: #B4322B;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.jurado-miembro-inferior button {
+  border: none;
+  background: transparent;
+  color: #2C5F4A;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.jurado-vacio {
+  padding: 22px;
+  text-align: center;
+  color: #66716B;
+  border: 1px dashed var(--borde);
+  font-size: 13px;
+}
+
+/* REQUISITOS */
+
+.jurado-requisitos {
+  margin-top: 14px;
+  background: #FAFAF8;
+  border: 1px solid var(--borde);
+  color: #66716B;
+  border-radius: 5px;
+  padding: 13px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.jurado-mensaje {
+  margin-top: 14px;
+  padding: 13px;
+  border-radius: 5px;
+  font-size: 12px;
+  line-height: 19px;
+}
+
+.jurado-mensaje.error {
+  background: #FCEBEA;
+  color: #B4322B;
+  border: 1px solid #D9A9A3;
+}
+
+.jurado-mensaje.exito {
+  background: #E4EFE9;
+  color: #1E7F4D;
+  border: 1px solid #91B6A0;
+}
+
+/* CONFIRMAR JURADO */
+
+.jurado-panel-acciones {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #E1E3DC;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  text-align: center;
+}
+
+.jurado-confirmar {
+  background: #2C5F4A;
+  border: 1px solid #2C5F4A;
+  color: white;
+  height: 52px;
+  padding: 0 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.jurado-confirmar:hover:not(:disabled) {
+  background: #1E4534;
+}
+
+.jurado-confirmar:disabled {
+  opacity: 0.75;
+  cursor: default;
+}
+
+.jurado-panel-acciones small {
+  color: #66716B;
+  font-size: 11px;
+}
+
+.jurado-volver {
+  display: inline-block;
+  margin-top: 22px;
+  background: transparent;
+  border: none;
+  color: #2C5F4A;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ========================================
+   VENTANA DE CONFLICTO
+======================================== */
+
+.jurado-modal-fondo {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 200;
+}
+
+.jurado-modal {
+  background: white;
+  padding: 28px;
+  border-radius: 7px;
+  width: 100%;
+  max-width: 470px;
+}
+
+.jurado-modal h2 {
+  margin: 0 0 15px;
+  font-family: "Lora", Georgia, serif;
+  font-size: 23px;
+  color: #1E4534;
+}
+
+.jurado-modal p {
+  font-size: 14px;
+  line-height: 23px;
+  color: #66716B;
+}
+
+.jurado-modal-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.jurado-modal-botones > button:first-child {
+  border: none;
+  color: #2C5F4A;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1200px) {
+  .jurado-distribucion {
+    grid-template-columns: minmax(0, 1fr) 330px;
+  }
+
+  .jurado-contenido {
+    padding: 30px 28px;
+  }
+}
+
+@media (max-width: 950px) {
+  .jurado-distribucion {
+    grid-template-columns: 1fr;
+  }
+
+  .jurado-docentes,
+  .jurado-panel {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .jurado-contenido {
+    padding: 20px 14px;
+  }
+
+  .jurado-tabla-header,
+  .jurado-docente {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .jurado-docente {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .jurado-panel {
+    padding: 16px;
+  }
+}
+
+/* AJUSTES PARA ACERCARSE AL MOCKUP 6.2 */
+
+@media (min-width: 1401px) {
+
+  .jurado-contenido {
+    min-height: 0;
+    padding: 30px 48px 32px;
+  }
+
+  .jurado-introduccion {
+    margin-bottom: 16px;
+  }
+
+  .jurado-introduccion h1 {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .jurado-alerta {
+    padding: 11px 15px;
+    margin-bottom: 16px;
+  }
+
+  .jurado-distribucion {
+    grid-template-columns: minmax(0, 1fr) 390px;
+    gap: 24px;
+  }
+
+  .jurado-docentes,
+  .jurado-panel {
+    min-height: 580px;
+  }
+
+  .jurado-docente {
+    min-height: 68px;
+    padding: 12px 22px;
+  }
+
+  .jurado-tabla-header {
+    padding: 15px 22px;
+  }
+
+  .jurado-docente-info strong {
+    font-size: 13px;
+  }
+
+  .jurado-docente-info small {
+    font-size: 11px;
+  }
+
+  .jurado-panel {
+    padding: 20px;
+  }
+
+  .jurado-miembro {
+    padding: 12px;
+    gap: 7px;
+  }
+
+  .jurado-miembros {
+    gap: 9px;
+  }
+
+  .jurado-nota {
+    padding: 15px 22px;
+  }
+
+  .jurado-confirmar {
+    height: 46px;
+  }
+
+  .jurado-volver {
+    margin-top: 12px;
+  }
+}

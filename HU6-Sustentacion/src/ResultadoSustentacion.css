@@ -1,0 +1,378 @@
+
+/* HU6 - 6.4 MI SUSTENTACIÓN REALIZADA */
+
+.resultado-pagina {
+  background: #F1F0EA;
+  color: #1A211D;
+}
+
+/* CABECERA */
+
+.resultado-pagina .mi-trabajo-activo {
+  background: #E4EFE9;
+  justify-content: space-between;
+}
+
+.resultado-sustentado {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: white;
+  color: #1E7F4D;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* CONTENIDO */
+
+.resultado-contenido {
+  min-height: 850px;
+  padding: 32px 48px;
+}
+
+.resultado-introduccion {
+  margin-bottom: 20px;
+}
+
+.resultado-introduccion h1 {
+  font-family: "Lora", Georgia, serif;
+  color: #1E4534;
+  font-size: 30px;
+  line-height: 36px;
+  margin: 8px 0 7px;
+}
+
+.resultado-introduccion p {
+  margin: 0;
+  color: #66716B;
+  font-size: 13px;
+}
+
+/* DOS COLUMNAS */
+
+.resultado-columnas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.resultado-principal {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* TARJETA VERDE DE RESULTADO */
+
+.resultado-tarjeta {
+  min-height: 155px;
+  background: #E4EFE9;
+  border: 1px solid #668F79;
+  border-radius: 5px;
+  padding: 25px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.resultado-etiqueta,
+.resultado-calificacion-final span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #294938;
+}
+
+.resultado-estado h2 {
+  font-family: "Lora", Georgia, serif;
+  font-size: 43px;
+  line-height: 51px;
+  color: #1E4534;
+  margin: 4px 0 0;
+}
+
+.resultado-estado p {
+  margin: 0;
+  color: #244737;
+  font-size: 13px;
+}
+
+.resultado-calificacion-final {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.resultado-calificacion-final strong {
+  font-size: 54px;
+  color: #398355;
+  line-height: 60px;
+  font-weight: 700;
+}
+
+/* DETALLE DE LA CALIFICACIÓN */
+
+.resultado-detalle {
+  background: white;
+  border: 1px solid #E1E3DC;
+  border-radius: 6px;
+  padding: 24px;
+  min-height: 520px;
+  box-shadow: 0 2px 6px #0000000a;
+}
+
+.resultado-detalle h2 {
+  font-family: "Lora", Georgia, serif;
+  color: #1E4534;
+  font-size: 22px;
+  line-height: 30px;
+  margin: 0 0 16px;
+}
+
+.resultado-tabla-cabecera,
+.resultado-tabla-fila {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(80px, 0.8fr) minmax(70px, 0.8fr);
+  align-items: center;
+  gap: 15px;
+}
+
+.resultado-tabla-cabecera {
+  color: #66716B;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.resultado-tabla-fila {
+  min-height: 36px;
+  font-size: 14px;
+}
+
+.resultado-tabla-fila span:nth-child(2) {
+  color: #66716B;
+}
+
+.resultado-tabla-fila strong {
+  font-weight: 700;
+}
+
+/* OBSERVACIONES */
+
+.resultado-observaciones {
+  border-top: 1px solid #E1E3DC;
+  padding-top: 17px;
+  margin-top: 15px;
+}
+
+.resultado-observaciones h3 {
+  color: #66716B;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  margin: 0 0 9px;
+}
+
+.resultado-comentario {
+  background: #FAFAF8;
+  border-left: 3px solid #2C5F4A;
+  color: #1A211D;
+  padding: 15px 17px;
+  font-size: 13px;
+  line-height: 21px;
+}
+
+/* COLUMNA DERECHA */
+
+.resultado-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.resultado-panel {
+  background: white;
+  border: 1px solid #E1E3DC;
+  border-radius: 6px;
+  padding: 22px;
+  box-shadow: 0 2px 6px #0000000a;
+}
+
+.resultado-panel h3 {
+  color: #66716B;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin: 0 0 14px;
+}
+
+.resultado-botones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resultado-botones button {
+  width: 100%;
+  min-height: 47px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.resultado-btn-principal {
+  color: white;
+  background: #2C5F4A;
+  border: 1px solid #2C5F4A;
+}
+
+.resultado-btn-principal:hover {
+  background: #1E4534;
+}
+
+.resultado-btn-secundario {
+  color: #2C5F4A;
+  background: white;
+  border: 1px solid #2C5F4A;
+}
+
+.resultado-btn-simple {
+  color: #1A211D;
+  background: white;
+  border: 1px solid #E1E3DC;
+}
+
+.resultado-aviso {
+  background: #FFF5E8;
+  border: 1px solid #B7791F;
+  color: #805719;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 18px;
+  border-radius: 4px;
+  margin-bottom: 0;
+}
+
+/* JURADO */
+
+.resultado-lista-jurado {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.resultado-miembro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 22px;
+  font-size: 13px;
+}
+
+.resultado-presidente {
+  background: #FFF3E1;
+  color: #A77935;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 5px 9px;
+  border-radius: 4px;
+}
+
+/* SIGUIENTE PASO */
+
+.resultado-siguiente {
+  background: #E4EFE9;
+  border: 1px solid #668F79;
+  border-radius: 5px;
+  padding: 19px;
+  margin-top: auto;
+}
+
+.resultado-siguiente strong {
+  color: #1E4534;
+  font-size: 14px;
+}
+
+.resultado-siguiente p {
+  color: #244737;
+  font-size: 12px;
+  line-height: 19px;
+  margin: 8px 0 0;
+}
+
+.resultado-volver {
+  margin-top: 15px;
+  border: none;
+  background: transparent;
+  color: #2C5F4A;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* PANTALLAS PEQUEÑAS */
+
+@media (max-width: 1100px) {
+  .resultado-columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .resultado-contenido {
+    padding: 25px;
+    min-height: 0;
+  }
+
+  .resultado-siguiente {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .resultado-contenido {
+    padding: 20px 14px;
+  }
+
+  .resultado-tarjeta {
+    padding: 20px;
+  }
+
+  .resultado-estado h2 {
+    font-size: 30px;
+  }
+
+  .resultado-calificacion-final strong {
+    font-size: 40px;
+  }
+
+  .resultado-detalle {
+    padding: 16px;
+  }
+}
+
+/* IMPRESIÓN DE LA VISTA SIMULADA */
+
+@media print {
+  .resultado-pagina .mi-navbar,
+  .resultado-botones,
+  .resultado-volver,
+  .resultado-pagina .mi-footer {
+    display: none !important;
+  }
+
+  .resultado-contenido {
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .resultado-columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .resultado-detalle {
+    min-height: 0;
+  }
+}

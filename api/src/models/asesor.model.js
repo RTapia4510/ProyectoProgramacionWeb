@@ -35,9 +35,7 @@ const Asesor = sequelize.define('Asesor', {
     type: DataTypes.INTEGER,
     allowNull: false,
     defaultValue: 0,
-    validate: {
-      min: 0
-    }
+    validate: { min: 0 }
   },
 
   ocupadosBase: {

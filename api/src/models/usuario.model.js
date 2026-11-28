@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
-const Usuario = sequelize.define('usuario', {
+const Usuario = sequelize.define('Usuario', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -9,12 +9,14 @@ const Usuario = sequelize.define('usuario', {
   },
   rol: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: { isIn: [['estudiante', 'asesor', 'admin']] }
   },
   estado: {
     type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: 'activo'
+    defaultValue: 'activo',
+    validate: { isIn: [['activo', 'bloqueado', 'por_validar']] }
   },
   nombres: {
     type: DataTypes.STRING,
